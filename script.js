@@ -225,16 +225,34 @@ document.querySelectorAll('.btn-primary').forEach(button => {
     }
 });
 
-// Add click handlers for pricing buttons
-document.querySelectorAll('.pricing-card .btn').forEach(button => {
-    button.addEventListener('click', () => {
-        if (button.textContent.includes('Contact Sales')) {
-            alert('This would open a contact form or redirect to sales!');
-        } else {
-            alert('This would start the signup process!');
+// Add click handlers for the home button
+const homeLink = document.getElementById('home-link');
+if (homeLink) {
+    homeLink.addEventListener('click', function(e) {
+        // If already at the top, reload the page
+        if (window.location.hash === '#home' || window.scrollY === 0) {
+            e.preventDefault();
+            window.location.reload();
         }
+        // Otherwise, allow smooth scroll (handled by other code)
     });
-});
+}
+  
+
+// Add click handlers for pricing buttons
+// ... existing code ...
+// Special handling for Home link: reload if already at top, else scroll to top
+// Remove this duplicate block:
+// const homeLink = document.getElementById('home-link');
+// if (homeLink) {
+//     homeLink.addEventListener('click', function(e) {
+//         if (window.location.hash === '#home' || window.scrollY === 0) {
+//             e.preventDefault();
+//             window.location.reload();
+//         }
+//     });
+// }
+// ... existing code ...
 
 // Add smooth reveal animation for sections
 const revealSections = document.querySelectorAll('section');
@@ -393,24 +411,36 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.querySelectorAll('.store-btn').forEach(btn => {
+    btn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            btn.click();
+        }
+    });
+});
+
+// Google Sign-In for Sign In page
+if (window.location.pathname.endsWith('signin.html')) {
+  import('./firebase.js').then(({ auth, GoogleAuthProvider, signInWithPopup }) => {
+    // Select the Google button by its text content to be sure
+    const googleBtn = Array.from(document.querySelectorAll('.btn-social')).find(
+      btn => btn.textContent.includes('Google')
+    );
+    if (googleBtn) {
+      googleBtn.addEventListener('click', async () => {
+        const provider = new GoogleAuthProvider();
+        try {
+          await signInWithPopup(auth, provider);
+          window.location.href = 'index.html'; // Redirect after sign-in
+        } catch (error) {
+          alert('Google sign-in failed: ' + error.message);
+        }
+      });
+    }
+  }).catch(err => {
+    console.error('Failed to import firebase.js:', err);
+  });
+}
+
 console.log('ParqPilot landing page loaded successfully! 🚗✨'); 
-
-.realtime-bg {
-    position: relative;
-    overflow: hidden;
-}
-
-.realtime-bg::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: url('images/realtime.png') center/60% no-repeat;
-    opacity: 0.07; /* Very low intensity */
-    z-index: 0;
-    pointer-events: none;
-}
-
-.realtime-bg > * {
-    position: relative;
-    z-index: 1;
-} 

@@ -24,16 +24,13 @@
             </div>
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="home" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="features" class="nav-link">Features</a>
+                    <a href="#home" class="nav-link" id="home-link">Home</a>
                 </li>
                 <li class="nav-item">
                     <a href="#how-it-works" class="nav-link">How It Works</a>
                 </li>
                 <li class="nav-item">
-                    <a href="pricing" class="nav-link">Pricing</a>
+                    <a href="#pricing" class="nav-link">Pricing</a>
                 </li>
                 <li class="nav-item">
                     <a href="contact.html" class="nav-link">Contact</a>
@@ -250,10 +247,10 @@
                 <h2>Ready to Transform Your Parking Experience?</h2>
                 <p>Join thousands of users who have already discovered the convenience of smart parking.</p>
                 <div class="cta-buttons">
-                    <a href="https://www.apple.com/app-store/" target="_blank" rel="noopener" class="cta-store-button">
+                    <a href="https://www.apple.com/app-store/" target="_blank" rel="noopener" class="cta-store-button store-btn" role="button" tabindex="0" aria-label="Download on the App Store">
                         <img src="images/apple.png" alt="Download on App Store" class="cta-store-img">
                     </a>
-                    <a href="https://play.google.com/store" target="_blank" rel="noopener" class="cta-store-button">
+                    <a href="https://play.google.com/store" target="_blank" rel="noopener" class="cta-store-button store-btn" role="button" tabindex="0" aria-label="Get it on Google Play">
                         <img src="images/google.png" alt="Get it on Google Play" class="cta-store-img">
                     </a>
                 </div>
@@ -313,7 +310,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
     
     <!-- Firebase App (core) -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
@@ -325,19 +322,22 @@
     import { getAuth } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
     import { getFirestore } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
-
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-analytics.js";
   // Your web app's Firebase configuration
   const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyCWTT4YG9O1-mzjAVbz7yiHxVXu02xLDv4",
+  authDomain: "parqpilot-2c029.firebaseapp.com",
+  databaseURL: "https://parqpilot-2c029-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "parqpilot-2c029",
+  storageBucket: "parqpilot-2c029.firebasestorage.app",
+  messagingSenderId: "937029182282",
+  appId: "1:937029182282:web:bafa94d53c6185589fd7b3",
+  measurementId: "G-ZR0D6074Z1"
   };
 
   // Initialize Firebase
   const app = firebase.initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
 
   // Example: Initialize Firestore
   const db = firebase.firestore();
