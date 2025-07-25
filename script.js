@@ -443,4 +443,19 @@ if (window.location.pathname.endsWith('signin.html')) {
   });
 }
 
+// Handle email/password sign-in form
+if (window.location.pathname.endsWith('signin.html')) {
+  const signinForm = document.getElementById('signinForm');
+  if (signinForm) {
+    signinForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      console.log('Email:', email);
+      console.log('Password:', password);
+      // Add your Firebase Auth sign-in logic here if needed
+    });
+  }
+}
+
 console.log('ParqPilot landing page loaded successfully! 🚗✨'); 
