@@ -63,7 +63,7 @@ body {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 4.5rem; /* Slightly reduced gap */
+    gap: 2.5rem; /* Reduced gap for tighter spacing */
 }
 
 .nav-link {
@@ -250,7 +250,7 @@ body {
     position: relative;
     width: 300px;
     height: 600px;
-    background: linear-gradient(145deg, #fb9017, #334155);
+    background: linear-gradient(145deg, #0a2282, #334155);
     border-radius: 30px;
     padding: 20px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -657,7 +657,7 @@ CTA Section */
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background-color: rgb(235, 34, 34);
+        background-color: rgb(14, 15, 94);
         width: 100%;
         text-align: center;
         transition: 0.3s;
@@ -1625,7 +1625,7 @@ CTA Section */
     position: fixed;
     top: 20px;
     right: 20px;
-    background: #ef4444;
+    background: #eb3232;
     color: white;
     padding: 1rem 1.5rem;
     border-radius: 12px;
@@ -1765,4 +1765,253 @@ CTA Section */
     background: rgba(255,255,255,0.95);
     /* or use a subtle blur for a glass effect */
     backdrop-filter: blur(10px);
+} 
+
+/* Key Components Section */
+.key-components {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #350ed0 0%, #0729a6 100%);
+}
+
+.components-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.component-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+    position: relative;
+    overflow: hidden;
+}
+
+.component-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.component-image::before {
+    content: "📱";
+    font-size: 3rem;
+    opacity: 0.3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.component-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.component-card:hover .component-img {
+    transform: scale(1.05);
+}
+
+.component-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.component-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #001aff 0%, #0056b3 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.component-icon i {
+    font-size: 1.8rem;
+    color: #fff;
+}
+
+.component-card h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.component-card p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.component-features {
+    list-style: none;
+    padding: 0;
+}
+
+.component-features li {
+    padding: 0.5rem 0;
+    color: #555;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.component-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #001aff;
+    font-weight: bold;
+}
+
+/* System Design Section */
+.system-design {
+    padding: 80px 0;
+    background: linear-gradient(135deg,#1b0476 0%, #1e0895 100%);
+    color: #fff;
+}
+
+.design-overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+    align-items: start;
+}
+
+.design-diagram {
+    background: rgba(48, 8, 149, 0.979);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.diagram-layer {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border-left: 4px solid #fff;
+}
+
+.diagram-layer h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.layer-components {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.component-tag {
+    background: rgba(37, 12, 226, 0.937);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    backdrop-filter: blur(5px);
+}
+
+.design-features {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.design-feature {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.design-feature h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.design-feature h4 i {
+    color: #ffd700;
+}
+
+.design-feature p {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+/* Responsive Design for new sections */
+@media (max-width: 768px) {
+    .components-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .component-card {
+        padding: 1.5rem;
+    }
+    
+    .component-image {
+        height: 150px;
+        margin-bottom: 1rem;
+    }
+    
+    .design-overview {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .design-diagram {
+        padding: 1.5rem;
+    }
+    
+    .diagram-layer {
+        padding: 1rem;
+    }
+    
+    .layer-components {
+        flex-direction: column;
+    }
+    
+    .component-tag {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .component-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .design-feature h4 {
+        font-size: 1rem;
+    }
+    
+    .diagram-layer h3 {
+        font-size: 1.1rem;
+    }
 } 

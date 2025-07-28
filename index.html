@@ -4,6 +4,36 @@
     <script type="module">
         
     </script>
+    <!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js"></script>
+
+<!-- Firebase Initialization -->
+<!-- Firebase Initialization -->
+<script>
+  window.addEventListener("load", function () {
+    const firebaseConfig = {
+      apiKey: "AIzaSyBMhNfOoZPfUuvCmXD2gKfXhM01DuqjMkM",
+      authDomain: "parqpilotweb.firebaseapp.com",
+      databaseURL: "https://parqpilotweb-default-rtdb.firebaseio.com",
+      projectId: "parqpilotweb",
+      storageBucket: "parqpilotweb.firebasestorage.app",
+      messagingSenderId: "810138608718",
+      appId: "G-ME54BDK650"
+    };
+
+    // Initialize Firebase safely
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+
+    const auth = firebase.auth();
+    const database = firebase.database();
+  });
+</script>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="window-target" content="_self">
@@ -13,6 +43,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <base target="_self">
+   
 </head>
 <body>
     <!-- Navigation -->
@@ -30,6 +61,12 @@
                     <a href="#how-it-works" class="nav-link">How It Works</a>
                 </li>
                 <li class="nav-item">
+                    <a href="#key-components" class="nav-link">Key Components</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#system-design" class="nav-link">System Design</a>
+                </li>
+                <li class="nav-item">
                     <a href="#pricing" class="nav-link">Pricing</a>
                 </li>
                 <li class="nav-item">
@@ -38,7 +75,7 @@
             </ul>
             <div class="nav-buttons">
                 <a href="signin.html" class="btn btn-secondary">Sign In</a>
-                <a href="signup.html" class="btn btn-primary">Get Started</a>
+                <a href="signin.html" class="btn btn-primary">Get Started</a>
             </div>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -117,7 +154,7 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-route"></i>
+                        <img src="images/navigate.png" alt="Navigation Integration" class="feature-img" style="width:100%; max-width:700px; border-radius:18px; margin-bottom:18px; display:block;">
                     </div>
                     <h3>Navigation Integration</h3>
                     <p>Get turn-by-turn directions directly to your reserved parking spot.</p>
@@ -167,6 +204,136 @@
                     <div class="step-content">
                         <h3>Park & Go</h3>
                         <p>Navigate to your reserved spot and enjoy hassle-free parking experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Components Section -->
+    <section id="key-components" class="key-components">
+        <div class="container">
+            <div class="section-header">
+                <h2>Key Components</h2>
+                <p>Our smart parking system is built using cutting-edge technology and robust components</p>
+            </div>
+            <div class="components-grid">
+                <div class="component-card">
+                    <div class="component-image">
+                        <img src="images/mobileapp.png" alt="Mobile Application" class="component-img">
+                    </div>
+                    <h3>Mobile Application</h3>
+                    <p>Cross-platform mobile app for iOS and Android with real-time parking spot detection and reservation capabilities.</p>
+                    <ul class="component-features">
+                        <li>Google Maps Navigation</li>
+                        <li>Push Notifications</li>
+                        <li>Payment Gateway</li>
+                        <li>User Authentication</li>
+                    </ul>
+                </div>
+                <div class="component-card">
+                    <div class="component-image">
+                        <img src="images/circuit.png" alt="IoT Sensors" class="component-img">
+                    </div>
+                    <h3>IoT Sensors</h3>
+                    <p>Advanced parking sensors installed in each spot to detect vehicle presence and occupancy status.</p>
+                    <ul class="component-features">
+                        <li>Ultrasonic Distance Sensors</li>
+                        <li>Potentiometer</li>
+                        <li>FT232R Microcontroller</li>
+                        <li>Low Power Consumption</li>
+                    </ul>
+                </div>
+                <div class="component-card">
+                    <div class="component-image">
+                        <img src="images/realtime.jpg" alt="Cloud Platform" class="component-img">
+                    </div>
+                    <h3>Cloud Platform</h3>
+                    <p>Scalable cloud infrastructure handling data processing, analytics, and system management.</p>
+                    <ul class="component-features">
+                        <li>Real-time Data Processing</li>
+                        <li>Machine Learning Algorithms</li>
+                        <li>Scalable Architecture</li>
+                        <li>API Integration</li>
+                    </ul>
+                </div>
+                <div class="component-card">
+                    <div class="component-image">
+                        <img src="images/database.png" alt="Database System" class="component-img">
+                    </div>
+                    <h3>Database System</h3>
+                    <p>Secure and reliable database storing user data, parking information, and transaction records.</p>
+                    <ul class="component-features">
+                        <li>User Profiles</li>
+                        <li>Parking Spot Inventory</li>
+                        <li>Parking History</li>
+                        <li>Analytics Data</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Design Section -->
+    <section id="system-design" class="system-design">
+        <div class="container">
+            <div class="section-header">
+                <h2>System Design</h2>
+                <p>Advanced architecture ensuring reliability, scalability, and seamless user experience</p>
+            </div>
+            <div class="design-overview">
+                <div class="design-diagram">
+                    <div class="diagram-layer">
+                        <h3>User Interface Layer</h3>
+                        <div class="layer-components">
+                            <span class="component-tag">Mobile App</span>
+                            <span class="component-tag">Web Dashboard</span>
+                        </div>
+                    </div>
+                    <div class="diagram-layer">
+                        <h3>Application Layer</h3>
+                        <div class="layer-components">
+                            <span class="component-tag">API Gateway</span>
+                            <span class="component-tag">Authentication</span>
+                            <span class="component-tag">Payment Processing</span>
+                            <span class="component-tag">Notification Service</span>
+                        </div>
+                    </div>
+                    <div class="diagram-layer">
+                        <h3>Business Logic Layer</h3>
+                        <div class="layer-components">
+                            <span class="component-tag">Parking Management</span>
+                            <span class="component-tag">Reservation Engine</span>
+                            <span class="component-tag">Analytics Engine</span>
+                            <span class="component-tag">ML Prediction</span>
+                        </div>
+                    </div>
+                    <div class="diagram-layer">
+                        <h3>Data Layer</h3>
+                        <div class="layer-components">
+                            <span class="component-tag">User Database</span>
+                            <span class="component-tag">Parking Database</span>
+                            <span class="component-tag">Analytics Warehouse</span>
+                            <span class="component-tag">IoT Data Stream</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="design-features">
+                    <div class="design-feature">
+                        <h4><i class="fas fa-rocket"></i> Scalable Architecture</h4>
+                        <p>Microservices-based design allowing horizontal scaling to handle millions of users and parking spots.</p>
+                    </div>
+                    <div class="design-feature">
+                        <h4><i class="fas fa-shield-alt"></i> Security First</h4>
+                        <p>Multi-layered security with encryption, authentication, and compliance with data protection regulations.</p>
+                    </div>
+                    <div class="design-feature">
+                        <h4><i class="fas fa-sync"></i> Real-time Processing</h4>
+                        <p>Event-driven architecture ensuring instant updates and notifications across all system components.</p>
+                    </div>
+                    <div class="design-feature">
+                        <h4><i class="fas fa-cogs"></i> Fault Tolerance</h4>
+                        <p>Redundant systems and automatic failover mechanisms ensuring 99.9% uptime and reliability.</p>
                     </div>
                 </div>
             </div>
@@ -345,6 +512,7 @@
   // Example: Log a message
   db.collection("test").add({message: "Hello from parqpilot!"});
   console.log("Firebase Connected");
+  
 </script>
 
 </body>
