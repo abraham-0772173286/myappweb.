@@ -1,5 +1,3 @@
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
 
 // Prevent multiple tabs/windows
 (function() {
@@ -423,101 +421,7 @@ document.querySelectorAll('.store-btn').forEach(btn => {
     });
 });
 
-// Google Sign-In for Sign In page
-if (window.location.pathname.endsWith('signin.html')) {
-  import('./firebase.js').then(({ auth, GoogleAuthProvider, signInWithPopup }) => {
-    // Select the Google button by its text content to be sure
-    const googleBtn = Array.from(document.querySelectorAll('.btn-social')).find(
-      btn => btn.textContent.includes('Google')
-    );
-    if (googleBtn) {
-      googleBtn.addEventListener('click', async () => {
-        const provider = new GoogleAuthProvider();
-        try {
-          await signInWithPopup(auth, provider);
-          window.location.href = 'index.html'; // Redirect after sign-in
-        } catch (error) {
-          alert('Google sign-in failed: ' + error.message);
-        }
-      });
-    }
-  }).catch(err => {
-    console.error('Failed to import firebase.js:', err);
-  });
-}
 
-// Handle email/password sign-in form
-if (window.location.pathname.endsWith('signin.html')) {
-  const signinForm = document.getElementById('signinForm');
-  if (signinForm) {
-    signinForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const submitBtn = document.getElementById('submitBtn');
-      submitBtn.addEventListener('click', function(event) {
-        event.preventDefault();
-        const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      //submit buttons
-        const auth = getAuth();
-         createUserWithEmailAndPassword(auth, email, password)
-           .then((userCredential) => {
-        
-    // Signed up 
-    const user = userCredential.user;
-    const signupTime = new Date().toISOString();
-    alert("Creating Account...")
-    window.location.href = "index.html"; // Redirect to home after sign-up
-    //   // ✅ Optional: Save to database
-        database.ref("users/" + user.uid).set({
-          email: user.email,
-          createdAt: signupTime
-        });
 
-        alert("Sign-up successful!");
-      })
-      .catch((error) => {
-        console.error(error);
-        alert("Sign-up failed: " + error.message);
-      });
-  });
 
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    alert("Error: " + errorMessage);
-    // ..
-  });
-
-      console.log('Email:', email);
-      console.log('Password:', password);
-      // Add your Firebase Auth sign-in logic here if needed
-    });
-  }
-}
-
-// Google Sign-In handler for ParqPilot
-if (document.getElementById('googleSignInBtn')) {
-    document.getElementById('googleSignInBtn').addEventListener('click', function() {
-        let provider;
-        let auth;
-        if (typeof firebase !== 'undefined' && firebase.auth) {
-            provider = new firebase.auth.GoogleAuthProvider();
-            auth = firebase.auth();
-            auth.signInWithPopup(provider)
-                .then((result) => {
-                    // Redirect or show success
-                    window.location.href = "dashboard.html";
-                })
-                .catch((error) => {
-                    alert("Google sign-in failed: " + error.message);
-                });
-        } else {
-            alert('Firebase Auth is not loaded.');
-        }
-    });
-}
-
-console.log('ParqPilot landing page loaded successfully! 🚗✨')
+c

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script type="module" src="script.js"></script> 
+     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In - ParqPilot</title>
@@ -56,7 +56,7 @@
     <!-- Sign In Section -->
     <section class="signin-section">
         <div class="container">
-            <div class="signin-container">
+            <div class="signin-container"
                 <!-- Left Side - Form -->
                 <div class="signin-form-container">
                     <motion.div class="signin-header" data-scroll>
@@ -232,51 +232,12 @@
             </div>
         </div>
     </footer>
-
+    <!-- Scripts -->
+     <script type="module" src="authentication.js"></script>
     <script src="script.js"></script>
     <script>
-        // Sign In Form Handling
-        document.getElementById('signinForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const form = this;
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const btnText = submitBtn.querySelector('.btn-text');
-            const btnLoading = submitBtn.querySelector('.btn-loading');
-            
-            // Get form data
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData);
-            
-            // Simple validation
-            if (!data.email || !data.password) {
-                showError('Please fill in all required fields.');
-                return;
-            }
-            
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(data.email)) {
-                showError('Please enter a valid email address.');
-                return;
-            }
-            
-            // Show loading state
-            btnText.style.display = 'none';
-            btnLoading.style.display = 'flex';
-            submitBtn.disabled = true;
-            
-            // Simulate API call
-            setTimeout(() => {
-                // Hide loading state
-                btnText.style.display = 'flex';
-                btnLoading.style.display = 'none';
-                submitBtn.disabled = false;
-                
-                // Show success message
-                showSuccessModal();
-            }, 2000);
-        });
+       
+ 
 
         // Password toggle functionality
         document.getElementById('passwordToggle').addEventListener('click', function() {
@@ -295,11 +256,11 @@
         });
 
         // Success modal functions
-        function showSuccessModal() {
-            const modal = document.getElementById('successModal');
-            modal.classList.add('show');
-            document.body.style.overflow = 'hidden';
-        }
+        // function showSuccessModal() {
+        //     const modal = document.getElementById('successModal');
+        //     modal.classList.add('show');
+        //     document.body.style.overflow = 'hidden';
+        // }
 
         function closeSuccessModal() {
             const modal = document.getElementById('successModal');
@@ -370,3 +331,6 @@
     </script>
 </body>
 </html> 
+
+
+
