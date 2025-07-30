@@ -60,10 +60,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        navbar.style.background = 'linear-gradient(90deg, #1221a9 0%, #162f64 100%)';
         navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
     } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.background = 'linear-gradient(90deg, #1221a9 0%, #162f64 100%)';
         navbar.style.boxShadow = 'none';
     }
 });
@@ -217,14 +217,7 @@ document.querySelectorAll('.btn-outline').forEach(button => {
 });
 
 // Add click handlers for download buttons
-document.querySelectorAll('.btn-primary').forEach(button => {
-    if (button.textContent.includes('Download') || button.textContent.includes('App Store') || button.textContent.includes('Google Play')) {
-        button.addEventListener('click', () => {
-            // You can add actual download links here
-            alert('This would redirect to the app store!');
-        });
-    }
-});
+// Removed alert popup - buttons will now use their natural href links
 
 // Add click handlers for the home button
 const homeLink = document.getElementById('home-link');
@@ -421,7 +414,89 @@ document.querySelectorAll('.store-btn').forEach(btn => {
     });
 });
 
+// Video debugging and setup
+document.addEventListener('DOMContentLoaded', function() {
+    // Setup for first video (parqpilotvid.mp4)
+    const video1 = document.getElementById('parqpilot-video');
+    // Setup for second video (parqpilotapp.mp4)
+    const video2 = document.getElementById('parqpilot-app-video');
+    
+    function setupVideo(video, videoName, fileName) {
+        if (video) {
+            console.log(`${videoName} element found:`, video);
+            
+            // Add event listeners for debugging
+            video.addEventListener('loadstart', () => console.log(`${videoName}: Load started`));
+            video.addEventListener('loadedmetadata', () => console.log(`${videoName}: Metadata loaded`));
+            video.addEventListener('loadeddata', () => console.log(`${videoName}: Data loaded`));
+            video.addEventListener('canplay', () => console.log(`${videoName}: Can play`));
+            video.addEventListener('canplaythrough', () => console.log(`${videoName}: Can play through`));
+            video.addEventListener('error', (e) => {
+                console.error(`${videoName} error:`, e);
+                console.error(`${videoName} error details:`, video.error);
+                if (video.error) {
+                    console.error(`${videoName} Error code:`, video.error.code);
+                    console.error(`${videoName} Error message:`, video.error.message);
+                }
+            });
+            
+            // Check all sources
+            const sources = video.querySelectorAll('source');
+            sources.forEach((source, index) => {
+                console.log(`${videoName} Source ${index + 1}:`, source.src);
+                source.addEventListener('error', (e) => {
+                    console.error(`${videoName} Source ${index + 1} failed:`, source.src);
+                });
+            });
+            
+            // Try to load the video
+            video.load();
+            
+            // Add click handler to try playing
+            video.addEventListener('click', function() {
+                if (video.paused) {
+                    video.play().then(() => {
+                        console.log(`${videoName} started playing`);
+                    }).catch(e => {
+                        console.error(`${videoName} Play failed:`, e);
+                    });
+                } else {
+                    video.pause();
+                    console.log(`${videoName} paused`);
+                }
+            });
+            
+            // Test if video file exists by trying to fetch it
+            fetch(`./videos/${fileName}`, { method: 'HEAD' })
+                .then(response => {
+                    if (response.ok) {
+                        console.log(`${videoName} file exists and is accessible`);
+                    } else {
+                        console.error(`${videoName} file not found or not accessible:`, response.status);
+                    }
+                })
+                .catch(error => {
+                    console.error(`Error checking ${videoName} file:`, error);
+                    // Try alternative path
+                    fetch(`./${fileName}`, { method: 'HEAD' })
+                        .then(response => {
+                            if (response.ok) {
+                                console.log(`${videoName} file found in root directory`);
+                            } else {
+                                console.error(`${videoName} file not found in root directory either`);
+                            }
+                        })
+                        .catch(err => console.error(`${videoName} file not found anywhere:`, err));
+                });
+        } else {
+            console.error(`${videoName} element not found!`);
+        }
+    }
+    
+    // Setup both videos
+    setupVideo(video1, 'ParqPilot Video', 'parqpilotvid.mp4');
+    setupVideo(video2, 'ParqPilot App Video', 'parqpilotapp.mp4');
+});
 
 
 
-c

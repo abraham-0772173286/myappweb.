@@ -1,38 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script type="module">
-        
-    </script>
-    <!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js"></script>
-
-<!-- Firebase Initialization -->
-<!-- Firebase Initialization -->
-<script>
-  window.addEventListener("load", function () {
-    const firebaseConfig = {
-      apiKey: "AIzaSyBMhNfOoZPfUuvCmXD2gKfXhM01DuqjMkM",
-      authDomain: "parqpilotweb.firebaseapp.com",
-      databaseURL: "https://parqpilotweb-default-rtdb.firebaseio.com",
-      projectId: "parqpilotweb",
-      storageBucket: "parqpilotweb.firebasestorage.app",
-      messagingSenderId: "810138608718",
-      appId: "G-ME54BDK650"
-    };
-
-    // Initialize Firebase safely
-    if (!firebase.apps.length) {
-      firebase.initializeApp(firebaseConfig);
-    }
-
-    const auth = firebase.auth();
-    const database = firebase.database();
-  });
-</script>
-
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -98,9 +66,12 @@
                 <div class="hero-buttons">
                     <a href="https://play.google.com/store" target="_blank" rel="noopener" class="btn btn-primary btn-large">
                         <i class="fas fa-download"></i>
-                        Download App
+                        Download for Android
                     </a>
-                   
+                    <a href="https://www.apple.com/app-store/" target="_blank" rel="noopener" class="btn btn-primary btn-large">
+                        <i class="fas fa-download"></i>
+                        Download for iOS
+                    </a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat">
@@ -132,44 +103,32 @@
             </div>
             <div class="features-grid">
                 <div class="feature-card realtime-bg">
-                    <div class="feature-icon">
-                        <img src="images/realtime.png" alt="Real-time Availability" class="feature-img">
-                    </div>
+                    <img src="images/nav.png" alt="Real-time Navigation" class="feature-card-image">
                     <h3>Real-time Availability</h3>
                     <p>See available parking spots in real-time with live updates and accurate information.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-credit-card"></i>
-                    </div>
+                    <img src="images/pay.png" alt="Seamless Payments" class="feature-card-image">
                     <h3>Seamless Payments</h3>
                     <p>Pay for parking with just a tap. Multiple payment options including digital wallets.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
+                    <img src="images/reservation.png" alt="Smart Reservations" class="feature-card-image">
                     <h3>Smart Reservations</h3>
                     <p>Reserve your parking spot in advance and never worry about availability again.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <img src="images/navigate.png" alt="Navigation Integration" class="feature-img" style="width:100%; max-width:700px; border-radius:18px; margin-bottom:18px; display:block;">
-                    </div>
+                    <img src="images/intergrate.png" alt="Navigation Integration" class="feature-card-image">
                     <h3>Navigation Integration</h3>
                     <p>Get turn-by-turn directions directly to your reserved parking spot.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
+                    <img src="images/security.png" alt="Secure & Safe" class="feature-card-image">
                     <h3>Secure & Safe</h3>
                     <p>Your data is protected with bank-level security and encryption.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
+                    <img src="images/support.png" alt="24/7 Support" class="feature-card-image">
                     <h3>24/7 Support</h3>
                     <p>Round-the-clock customer support to help you with any parking needs.</p>
                 </div>
@@ -269,6 +228,50 @@
                         <li>Parking History</li>
                         <li>Analytics Data</li>
                     </ul>
+                </div>
+            </div>
+            
+            <!-- System Demo Videos -->
+            <div class="system-demo-simple">
+                <div class="demo-header-simple">
+                    <h3>See Our System in Action</h3>
+                    <p>Watch how our smart parking system works seamlessly from start to finish</p>
+                </div>
+                <div class="videos-container-dual">
+                    <div class="video-container-simple">
+                        <video
+                            id="parqpilot-video"
+                            controls
+                            class="demo-video-simple"
+                            preload="auto"
+                            playsinline
+                            webkit-playsinline
+                            muted
+                            poster="">
+                            <source src="./videos/parqpilotvid.mp4" type="video/mp4">
+                            <source src="./parqpilotvid.mp4" type="video/mp4">
+                            <source src="videos/parqpilotvid.mp4" type="video/mp4">
+                            <source src="parqpilotvid.mp4" type="video/mp4">
+                            <p>Your browser does not support the video tag. <a href="./videos/parqpilotvid.mp4" target="_blank">Click here to download the video</a></p>
+                        </video>
+                    </div>
+                    <div class="video-container-simple">
+                        <video
+                            id="parqpilot-app-video"
+                            controls
+                            class="demo-video-simple"
+                            preload="auto"
+                            playsinline
+                            webkit-playsinline
+                            muted
+                            poster="">
+                            <source src="./videos/parqpilotapp.mp4" type="video/mp4">
+                            <source src="./parqpilotapp.mp4" type="video/mp4">
+                            <source src="videos/parqpilotapp.mp4" type="video/mp4">
+                            <source src="parqpilotapp.mp4" type="video/mp4">
+                            <p>Your browser does not support the video tag. <a href="./videos/parqpilotapp.mp4" target="_blank">Click here to download the video</a></p>
+                        </video>
+                    </div>
                 </div>
             </div>
         </div>
@@ -479,41 +482,6 @@
 
     <script type="module" src="script.js"></script>
     
-    <!-- Firebase App (core) -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
-<!-- Add other Firebase products as needed -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
-<script>
-    //import firebase SDKs
-    import { getAuth } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
-    import { getFirestore } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-analytics.js";
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyCWTT4YG9O1-mzjAVbz7yiHxVXu02xLDv4",
-  authDomain: "parqpilot-2c029.firebaseapp.com",
-  databaseURL: "https://parqpilot-2c029-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "parqpilot-2c029",
-  storageBucket: "parqpilot-2c029.firebasestorage.app",
-  messagingSenderId: "937029182282",
-  appId: "1:937029182282:web:bafa94d53c6185589fd7b3",
-  measurementId: "G-ZR0D6074Z1"
-  };
-
-  // Initialize Firebase
-  const app = firebase.initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-
-  // Example: Initialize Firestore
-  const db = firebase.firestore();
-
-  // Example: Log a message
-  db.collection("test").add({message: "Hello from parqpilot!"});
-  console.log("Firebase Connected");
-  
-</script>
 
 </body>
 </html> 
